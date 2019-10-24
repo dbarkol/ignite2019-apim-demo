@@ -1,0 +1,32 @@
+<policies>
+    <inbound>
+        <base />
+        <!-- Mock a response -->
+        <return-response>
+            <set-status code="200" reason="OK" />
+            <set-header name="Content-Type" exists-action="override">
+                <value>application/json</value>
+            </set-header>
+            <set-body>@{
+                var location = new JObject();
+                location.Add("id", context.Request.MatchedParameters["id"]);
+                location.Add("address", "5 Wayside Road");
+                location.Add("city", "Burlington");
+                location.Add("state", "MA");
+                location.Add("postalCode", "01803");
+                location.Add("latitude", "42.48421");
+                location.Add("longitude", "-71.19155");
+                return location.ToString();      
+            }</set-body>
+        </return-response>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
