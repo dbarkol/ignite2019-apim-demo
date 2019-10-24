@@ -21,6 +21,9 @@ namespace Location.Api
         {
             log.LogInformation("GetLocations triggered");
 
+            // Simulate a slow response - TESTING ONLY
+            //System.Threading.Thread.Sleep(500);
+
             var locations = Models.Location.GetAllLocations();
 
             return (ActionResult)new OkObjectResult(locations);
