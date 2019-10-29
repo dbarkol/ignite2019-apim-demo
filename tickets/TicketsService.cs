@@ -34,5 +34,20 @@ namespace Tickets
             var t = tickets.Where(x => x.Id == id).ToList();
             return t.FirstOrDefault();
         }
+
+        public void DeleteTickets()
+        {
+            // TODO: Implement
+        }
+
+        public void DeleteTicketById(int id)
+        {
+            // TODO: Implement
+        }
+
+        public void AddTicket(Ticket ticket)
+        {
+            // TODO: Implement
+        }
     }
 }

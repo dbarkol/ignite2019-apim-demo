@@ -8,5 +8,11 @@ namespace Tickets
         List<Ticket> GetAllTickets();
 
         Ticket GetTicketById(int id);
+
+        void DeleteTickets();
+
+        void DeleteTicketById(int id);
+
+        void AddTicket(Ticket ticket);
     }
 }
