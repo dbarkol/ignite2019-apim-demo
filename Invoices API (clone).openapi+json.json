@@ -1,0 +1,156 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Invoices API (clone)",
+        "description": "",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://ignite2019demo.azure-api.net/api-clone"
+        }
+    ],
+    "paths": {
+        "/invoices/number/{number}": {
+            "get": {
+                "summary": "GetInvoiceByNumber",
+                "description": "GetInvoiceByNumber",
+                "operationId": "5db9ff10f3a1d4d1af11cef7",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/invoices/{number}": {
+            "put": {
+                "summary": "UpdateInvoice",
+                "description": "UpdateInvoice",
+                "operationId": "5db9ff10fcfc5e9684b27afc",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/invoices": {
+            "get": {
+                "summary": "GetInvoices",
+                "description": "GetInvoices",
+                "operationId": "5db9ff10017ea8833eaf5efe",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/invoices/customer/{customername}": {
+            "get": {
+                "summary": "GetInvoicesByCustomer",
+                "description": "GetInvoicesByCustomer",
+                "operationId": "5db9ff10277b7e709e416020",
+                "parameters": [
+                    {
+                        "name": "customername",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InvoicesCustomer-customername-Get200ApplicationJsonResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Invoice": {
+                "type": "object",
+                "properties": {
+                    "invoiceNumber": {
+                        "type": "string"
+                    },
+                    "customer": {
+                        "type": "string"
+                    },
+                    "agingDays": {
+                        "type": "string"
+                    },
+                    "openAmount": {
+                        "type": "string"
+                    },
+                    "reasonCode": {
+                        "type": "string"
+                    },
+                    "salesEngineer": {
+                        "type": "string"
+                    },
+                    "OwnerName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "InvoicesCustomer-customername-Get200ApplicationJsonResponse": {
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
